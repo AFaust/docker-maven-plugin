@@ -35,6 +35,8 @@ public enum ConfigKey {
     ASSEMBLY_USER("assembly.user"),
     ASSEMBLY_MODE("assembly.mode"),
     ASSEMBLY_TARLONGFILEMODE("assembly.tarLongFileMode"),
+    ASSEMBLY_ESCAPESTRING("assembly.escapeString"),
+    ASSEMBLY_DELIMITERS("assembly.delimiters", ValueCombinePolicy.Merge),
     AUTO_REMOVE,
     BIND,
     BUILD_OPTIONS,

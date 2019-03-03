@@ -64,6 +64,13 @@ If a third part is given, then the build changes to user `root` before changing 
 
 For example, the image `jboss/wildfly` use a "jboss" user under which all commands are executed. Adding files in Docker always happens under the UID root. These files can only be changed to "jboss" is the `chown` command is executed as root. For the following commands to be run again as "jboss" (like the final `standalone.sh`), the plugin switches back to user `jboss` (this is this "run-user") after changing the file ownership. For this example a specification of
 `jboss:jboss:jboss` would be required.
+
+| *escapeString*
+| Sets the escape string to be used in the filtering of resources included in the assembly. Expressions preceded with this String won't be interpolated. If you use "\" as the escape string then \${foo} will be replaced with ${foo}.
+
+| *delimiters*
+| Sets the delimiters to be used in the filtering of resources included in the assembly. These delimiters are specified in the form 'beginToken*endToken'. If no '*' is given, the delimiter is assumed to be the same for start and end.
+
 |===
 
 In the event you do not need to include any artifacts with the image, you may safely omit this element from the configuration.

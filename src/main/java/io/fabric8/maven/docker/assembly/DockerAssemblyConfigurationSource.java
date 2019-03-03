@@ -133,12 +133,12 @@ public class DockerAssemblyConfigurationSource implements AssemblerConfiguration
     // X
     @Override
     public String getEscapeString() {
-        return null;
+        return assemblyConfig != null ? assemblyConfig.getEscapeString() : null;
     }
 
     @Override
     public List<String> getDelimiters() {
-        return null;
+        return assemblyConfig != null ? assemblyConfig.getDelimiters() : null;
     }
 
 

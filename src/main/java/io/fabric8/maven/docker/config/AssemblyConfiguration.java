@@ -2,6 +2,7 @@ package io.fabric8.maven.docker.config;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.apache.maven.plugins.assembly.model.Assembly;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -75,6 +76,12 @@ public class AssemblyConfiguration implements Serializable {
 
     @Parameter
     private String tarLongFileMode;
+
+    @Parameter
+    private String escapeString;
+
+    @Parameter
+    private List<String> delimiters;
 
     public Boolean getExportTargetDir() {
         return exportTargetDir;
@@ -157,6 +164,14 @@ public class AssemblyConfiguration implements Serializable {
         return name;
     }
 
+    public String getEscapeString() {
+        return escapeString;
+    }
+
+    public List<String> getDelimiters() {
+        return delimiters;
+    }
+
     public static class Builder {
 
         private final AssemblyConfiguration config = new AssemblyConfiguration();
@@ -224,6 +239,16 @@ public class AssemblyConfiguration implements Serializable {
 
         public Builder tarLongFileMode(String tarLongFileMode) {
             config.tarLongFileMode = set(tarLongFileMode);
+            return this;
+        }
+
+        public Builder escapeString(String escapeString) {
+            config.escapeString = set(escapeString);
+            return this;
+        }
+
+        public Builder delimiters(List<String> delimiters) {
+            config.delimiters = set(delimiters);
             return this;
         }
 
